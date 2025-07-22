@@ -1,0 +1,204 @@
+body {
+      font-family: Arial, sans-serif;
+      background-color: #d8c4f7; /* light purple background */
+      margin: 0;
+      padding: 20px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    .form-container {
+      background-color: #fff; /* White background inside boundary */
+      border: 2px solid #6b46c1; /* purple boundary */
+      padding: 20px 40px 40px;
+      width: 600px;
+      box-sizing: border-box;
+      box-shadow: 0 0 10px rgba(107, 70, 193, 0.3);
+    }
+    h2 {
+      text-align: center;
+      color: #6b46c1;
+      font-weight: normal;
+      margin-bottom: 5px;
+      font-size: 1.6rem;
+      letter-spacing: 0.05em;
+    }
+    p.instructions {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 0;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+    .stepper {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      position: relative;
+      counter-reset: step;
+    }
+    .step {
+      text-align: center;
+      width: 23%;
+      position: relative;
+      color: #ccc;
+      font-size: 0.85rem;
+      user-select: none;
+    }
+    .step .icon {
+      background: #eee;
+      color: #ccc;
+      border-radius: 50%;
+      height: 36px;
+      width: 36px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+    .step.active {
+      color: #6b46c1;
+    }
+    .step.active .icon {
+      background: #6b46c1;
+      color: white;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 18px;
+      right: -12.5%;
+      width: 25%;
+      height: 2px;
+      background-color: #ccc;
+      z-index: -1;
+    }
+    .step.active:not(:last-child)::after {
+      background-color: #6b46c1;
+    }
+
+    .progress-bar-container {
+      height: 16px;
+      background-color: #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 25px;
+    }
+    .progress-bar {
+      height: 16px;
+      background-image: linear-gradient(
+        45deg,
+        rgba(107, 70, 193, 0.7) 25%,
+        transparent 25%, transparent 50%,
+        rgba(107, 70, 193, 0.7) 50%, rgba(107, 70, 193, 0.7) 75%,
+        transparent 75%, transparent
+      );
+      background-size: 40px 40px;
+      animation: progress-stripes 1s linear infinite;
+      width: 25%;
+    }
+    @keyframes progress-stripes {
+      0% {background-position: 40px 0;}
+      100% {background-position: 0 0;}
+    }
+
+    .form-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      color: #6b46c1;
+      font-weight: 500;
+    }
+    .form-header .title {
+      font-size: 1.2rem;
+    }
+    .form-header .step-indicator {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #444;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    label {
+      font-size: 0.8rem;
+      color: #777;
+      margin-bottom: 5px;
+      display: block;
+      text-align: center;
+      font-weight: normal;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 0.9rem;
+      border: 1px solid #cbd5e0;
+      border-radius: 2px;
+      background-color: #f1f5f9;
+      color: #444;
+      box-sizing: border-box;
+      font-family: monospace, monospace;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder,
+    input[type="password"]::placeholder {
+      color: #999;
+      font-size: 0.8rem;
+      font-family: monospace, monospace;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #6b46c1;
+      background-color: #fff;
+    }
+    #nextBtn,
+    #prevBtn {
+      margin-left: auto;
+      background-color: #6b46c1;
+      color: white;
+      padding: 10px 24px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      user-select: none;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+    #nextBtn:hover,
+    #prevBtn:hover {
+      background-color: #5a379e;
+    }
+    .tab {
+      display: none;
+    }
+    .tab.active {
+      display: block;
+    }
+    .icon-lock::before {
+      content: "\1F512";
+      font-size: 18px;
+    }
+    .icon-user::before {
+      content: "\1F464";
+      font-size: 18px;
+    }
+    .icon-camera::before {
+      content: "\1F4F7";
+      font-size: 18px;
+    }
+    .icon-check::before {
+      content: "\2713";
+      font-size: 18px;
+    }
